@@ -48,12 +48,12 @@ class DisjointSet {
         int pv = findParent(v);
         if(pu == pv) return;
         if(rank[pu] > rank[pv]) {
-            par[v] = u;
+            par[pv] = pu;
         } else if(rank[pu] == rank[pv]) {
-            par[v] = u;
+            par[pv] = pu;
             rank[pu]++;
         } else {
-            par[u] = v;
+            par[pu] = pv;
         }
     }
 }
