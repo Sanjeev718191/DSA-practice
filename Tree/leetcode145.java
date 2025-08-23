@@ -17,3 +17,22 @@ class Solution {
         ls.add(root.val);
     }
 }
+
+// Iterative
+class Solution {
+    public List<Integer> postorderTraversal(TreeNode root) {
+        List<Integer> ls = new ArrayList<>();
+        if(root == null)
+            return ls;
+        
+        Stack<TreeNode> st = new Stack<>();
+        st.push(root);
+        while(!st.isEmpty()){
+            root = st.pop();
+            ls.addFirst(root.val);
+            if(root.left != null) st.push(root.left);
+            if(root.right != null ) st.push(root.right);
+        }
+        return ls;
+    }
+}
